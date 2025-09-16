@@ -2,6 +2,7 @@ def main():
     import load, split, embed
     import generation as gen
     print("Starting main")
+
     #Set folder path for documents to insert into vector database
     path = "/Users/savarbharadwaj/PycharmProjects/RAG/data"
 

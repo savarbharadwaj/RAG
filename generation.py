@@ -1,4 +1,5 @@
 def generation():
+    import streamlit as st
     from langchain_community.embeddings import HuggingFaceEmbeddings
     from langchain_community.vectorstores import Chroma
     from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
@@ -14,15 +15,15 @@ def generation():
 
     tokenizer = AutoTokenizer.from_pretrained('google/flan-t5-base')
 
-    while True:
+    st.title("RAG")
 
-        query = input("Ask: ")
+    query = st.text_input("Please ask your query: ", key="query1")
+
+    if query:
 
         docs = db.similarity_search(query,k= 3)
 
         context = "\n\n".join(d.page_content for d in docs)
-
-        #instruction =
 
         prompt = f"You are an expert assistant. Use ONLY the provided context to answer the use's question. If the answer is not contained in the context, say - I don't know. Do not hallucinate. Use context to answer the question. \n\n context: {context} \n\n query: {query} \n\n Answer:"
 
@@ -32,4 +33,5 @@ def generation():
 
 
         answer = tokenizer.decode(out[0], skip_special_tokens=True)
-        print(answer)
+        #print(answer)
+        st.write(answer)

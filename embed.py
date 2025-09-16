@@ -8,8 +8,3 @@ def embed_and_store(chunks):
     db = Chroma.from_texts(chunks, embedding = embedding_model, persist_directory='./db')
     db.persist()
     print("embedding done")
-
-    #query = "What is the university name?"
-    #results = db.similarity_search(query, k=4)
-    #for r in results:
-    #    print(r.page_content[:300])

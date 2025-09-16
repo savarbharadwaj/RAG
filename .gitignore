@@ -1,0 +1,39 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.python-version
+
+# VS Code / PyCharm settings
+.vscode/
+.idea/
+
+# Mac system files
+.DS_Store
+
+# Logs
+*.log
+
+# Data and vector DB persistence
+data/
+db/
+*.sqlite3
+*.chroma/
+
+# Checkpoints / model weights (large files)
+*.bin
+*.pt
+*.ckpt
+
+# Notebooks auto-checkpoints
+.ipynb_checkpoints/
+
+# Temporary files
+*.tmp
+*.swp
